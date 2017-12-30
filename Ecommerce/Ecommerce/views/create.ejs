@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create New Products</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/jquery1.min.js"></script>
+    <!-- start menu -->
+    <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/megamenu.js"></script>
+    <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+    <script src="js/jquery.easydropdown.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+
+</head>
+
+<body>
+    <div class="header-top">
+        <div class="wrap">
+            
+            <div class="cssmenu">
+                <ul>
+                    <li class="active"><a href="/FileUpload">Account</a></li> 
+					<li>
+                         <ul>
+                             <li><a href="/create">Create Products</a></li>
+                             <li><a href="/Update">Update Products</a></li>
+                         </ul>
+                    </li>
+					<li class="active"><a href="/dashboard"> Descriptive Analysis </a></li> 
+                    <li><a href="checkout.html">Wishlist</a></li> |
+                    <li><a href="checkout.html">Checkout</a></li> |
+                    <li><a href="login.html">Log In</a></li> |
+                    <li><a href="register.html">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
+    <div class="header-bottom">
+        <div class="wrap">
+            <div class="header-bottom-left">
+                
+                <div class="menu">
+                    <ul class="megamenu skyblue">
+                        <li class="active grid"><a href="/">Home</a></li>
+                        <li>
+                            <a class="color4" href="#">Departments</a>
+                            <div class="megapanel">
+                                <div class="row">
+                                    <div class="col1">
+                                        <div class="h_nav">
+                                            <h4>Books</h4>
+                                            <ul>
+                                                <li><a href="books.html">database</a></li>
+                                                <li><a href="books.html">Programming</a></li>
+                                                <li><a href="books.html">Security </a></li>
+                                                <li><a href="books.html">Web Applications</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="color7" href="/Recommended_Products">Recommended Products</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="header-bottom-right">
+			   <form method="post" action="/GetSearchDetails">
+                <div class="search">
+                    <input type="text" name="user[name]" method="post" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                    <input type="submit" value="submit" id="submit" name="submit"> 
+                    <div id="response"> </div>
+                </div>
+				</form>
+
+                <div class="tag-list">
+                      <ul class="last"><li><a href="#">Cart(0)</a></li></ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+	
+	 <div ng-app="App">
+        <div ng-controller="AppController">
+            <div class="register_account">
+                <div class="wrap">
+                    <h4 class="title">Create an Account</h4>
+                    <form ng-submit="submit()">
+					
+					<div class="col_1_of_2 span_1_of_2">
+						<div><input type="text" ng-model="data.bookId" placeholder="Book ID"></div>
+		   				<div><input type="text" name="Book Name"  ng-model="data.bookname"  placeholder="Book Name"></div>
+		    			<div><input type="text" ng-model="data.bookauthor" placeholder="Author Name"></div>
+		    			<div><input type="text" ng-model="data.booklistprice"  placeholder="Book Price"></div>
+		    			<div><input type="text" ng-model="data.booklanguage"  placeholder="Language"></div>
+						<div><label>Please Upload Image: </label><input type="file" id="file"></input></div>
+						<div><button>Add Book</button></div>
+		    		</div>
+
+					<div class="col_1_of_2 span_1_of_2">
+						<div>
+							<select id="booktype" name="booktype" ng-model="data.booktype" >
+								<option value= "Paper Back">Paper Back</option>
+								<option value = "Hard Bound">Hard Bound</option>
+							</select>
+						</div>
+						<div><input type="text" ng-model="data.bookedition"  placeholder="Book Edition"></div>
+						<div><input type="text" ng-model="data.bookpages"  placeholder="Number of Pages"></div>
+						<div><input type="text" ng-model="data.bookdimensions"  placeholder="Book Dimensions"></div>
+						<div><input type="text" ng-model="data.bookrating"  placeholder="Book Rating"></div>
+						<div><textarea rows="3" cols="76" type="text" ng-model="data.bookdesc"  placeholder="Book Description"></textarea></div>
+					</div>
+
+                        <div class="clear"></div>	
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+     </div>
+
+
+	</div>
+	        <div class="footer-bottom">
+            <div class="wrap">
+
+                <div class="copy">
+                    <p>© 2017 Designned by <a href="http://www.maravind.com" target="_blank">Aravind</a></p>
+                </div>
+
+                <div class="f-list2">
+                    <ul>
+                        <li class="active"><a href="about.html">About Us</a></li> |
+                        <li><a href="delivery.html">Delivery & Returns</a></li> |
+                        <li><a href="delivery.html">Terms & Conditions</a></li> |
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+
+		 <script type="text/javascript">
+        App= angular.module('App', [])
+        App.controller( 'AppController',function($scope, $http){
+
+            $scope.data =[];
+
+            $scope.submit = function(){
+                var formData = new FormData;
+                for(key in $scope.data){
+                    formData.append(key, $scope.data[key]);
+                }
+
+                // getting the files
+                var file = $('#file')[0].files[0];
+                console.log(file, "file......");
+                formData.append('image',file)
+                // Now post the file...
+
+                $http.post('http://amazon-ecommerce.azurewebsites.net/create', formData, {
+                    transformRequest: angular.identity,
+                    headers: {
+                        'Content-Type': undefined
+                    }
+                }).then(function (res) {
+
+                });
+            }
+
+            });
+    </script>
+
+</body>
+
+</html>
